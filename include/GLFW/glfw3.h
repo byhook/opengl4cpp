@@ -5739,7 +5739,7 @@ GLFWAPI const char** glfwGetRequiredInstanceExtensions(uint32_t* count);
  */
 GLFWAPI GLFWvkproc glfwGetInstanceProcAddress(VkInstance instance, const char* procname);
 
-/*! @brief Returns whether the specified queue family can present images.
+/*! @brief Returns whether the specified queue family can present doc.
  *
  *  This function returns whether the specified queue family of the specified
  *  physical device supports presentation to the platform GLFW was built for.
