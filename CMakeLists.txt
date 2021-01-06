@@ -9,7 +9,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 link_libraries(${CMAKE_CURRENT_SOURCE_DIR}/libs/libglfw3.a)
 
-add_executable(opengl main_ebo.cpp glad.c)
+add_executable(opengl main_glsl.cpp glad.c)
 
 if(APPLE)
     target_link_libraries(opengl "-framework Cocoa")
