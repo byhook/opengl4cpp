@@ -3,8 +3,6 @@
 
 
 Shader::Shader(const GLchar *vertexPath, const GLchar *fragmentPath) {
-    std::cout << "vertexPath " << vertexPath << std::endl;
-    std::cout << "fragmentPath " << fragmentPath << std::endl;
     this->vertexPath = vertexPath;
     this->fragmentPath = fragmentPath;
 }
@@ -25,26 +23,64 @@ void Shader::loadShaderSource(const char *shaderPath, std::string &shaderCode) {
     }
 }
 
+
+bool Shader::checkCompileErrors(unsigned int id, bool isProgram) {
+    int success;
+    if (isProgram) {
+        glGetProgramiv(id, GL_LINK_STATUS, &success);
+    } else {
+        glGetShaderiv(id, GL_COMPILE_STATUS, &success);
+    }
+    return success;
+}
+
 bool Shader::setupProgram() {
     std::string vertexCode;
     loadShaderSource(vertexPath, vertexCode);
     std::string fragmentCode;
     loadShaderSource(fragmentPath, fragmentCode);
 
-    const char * vShaderCode = vertexCode.c_str();
-    const char * fShaderCode = fragmentCode.c_str();
+    const char *vShaderCode = vertexCode.c_str();
+    const char *fShaderCode = fragmentCode.c_str();
 
-    unsigned int vertex,fragment;
+    unsigned int vertex, fragment;
     vertex = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vertex, 1,&vShaderCode,NULL);
+    glShaderSource(vertex, 1, &vShaderCode, NULL);
     glCompileShader(vertex);
+    if (!checkCompileErrors(vertex, false)) {
+        std::cout << "compile vertex shader error" << std::endl;
+        return false;
+    }
+    std::cout << "compile vertex shader success" << std::endl;
+    fragment = glCreateShader(GL_FRAGMENT_SHADER);
+    glShaderSource(fragment, 1, &fShaderCode, NULL);
+    glCompileShader(fragment);
+    if (!checkCompileErrors(fragment, false)) {
+        std::cout << "compile fragment shader error" << std::endl;
+        return false;
+    }
+    std::cout << "compile fragment shader success" << std::endl;
 
-
-    std::cout << "vShaderCode:\r\n" << vShaderCode << std::endl;
+    programID = glCreateProgram();
+    glAttachShader(programID, vertex);
+    glAttachShader(programID, fragment);
+    glLinkProgram(programID);
+    if (!checkCompileErrors(programID, true)) {
+        std::cout << "compile program shader error" << std::endl;
+        return false;
+    }
+    std::cout << "compile program shader success" << std::endl;
+    //已经链接到程序里里,这里可以删除了
+    glDeleteShader(vertex);
+    glDeleteShader(fragment);
 
     return false;
 }
 
 void Shader::useProgram() {
+
+}
+
+void Shader::releaseProgram() {
 
 }

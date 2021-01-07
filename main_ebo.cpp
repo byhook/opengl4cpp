@@ -43,7 +43,7 @@ int main() {
 #endif
 
     //创建一个窗口对象
-    GLFWwindow *window = glfwCreateWindow(800, 600, "OpenGL", NULL, NULL);
+    GLFWwindow *window = glfwCreateWindow(360, 640, "OpenGL", NULL, NULL);
     if (window == NULL) {
         glfwTerminate();
         return -1;
@@ -53,7 +53,6 @@ int main() {
     if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
         return -1;
     }
-
 
     unsigned int vertexShader;
     vertexShader = glCreateShader(GL_VERTEX_SHADER);

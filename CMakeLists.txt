@@ -13,7 +13,7 @@ file(GLOB chapter_files ${CMAKE_CURRENT_SOURCE_DIR}/chapter/*.cpp)
 file(GLOB common_files ${CMAKE_CURRENT_SOURCE_DIR}/common/*.cpp)
 file(GLOB glad_files ${CMAKE_CURRENT_SOURCE_DIR}/include/glad/*.c)
 
-add_executable(opengl main.cpp ${glad_files} ${common_files} ${chapter_files} )
+add_executable(opengl ${glad_files} ${common_files} ${chapter_files} main.cpp)
 
 if(APPLE)
     target_link_libraries(opengl "-framework Cocoa")

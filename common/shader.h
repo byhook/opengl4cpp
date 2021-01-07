@@ -10,7 +10,6 @@
 
 class Shader {
 
-
 private:
 
     unsigned int programID = -1;
@@ -18,7 +17,20 @@ private:
     const GLchar *vertexPath;
     const GLchar *fragmentPath;
 
-    void loadShaderSource(const char *shaderPath, std::string &shaderCode);
+    /**
+     * 读取本地的着色器资源
+     * @param shaderPath
+     * @param shaderCode
+     */
+    static void loadShaderSource(const char *shaderPath, std::string &shaderCode);
+
+    /**
+     * 检查程序/着色器是否编译成功
+     * @param shader
+     * @param isProgram
+     * @return
+     */
+    static bool checkCompileErrors(unsigned int shader, bool isProgram);
 
 public:
 
@@ -27,6 +39,8 @@ public:
     bool setupProgram();
 
     void useProgram();
+
+    void releaseProgram();
 
 };
 
