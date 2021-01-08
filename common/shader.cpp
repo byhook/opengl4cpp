@@ -76,7 +76,7 @@ bool Shader::setupProgram() {
     //已经链接到程序里里,这里可以删除了
     glDeleteShader(vertex);
     glDeleteShader(fragment);
-    return false;
+    return true;
 }
 
 void Shader::useProgram() {
