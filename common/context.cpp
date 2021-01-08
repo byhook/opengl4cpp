@@ -1,17 +1,17 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include "surface.h"
+#include "context.h"
 
 
-Surface::Surface() {
+GLContext::GLContext() {
     this->pOnSurfaceRenderer = NULL;
 }
 
-Surface::~Surface() {
+GLContext::~GLContext() {
     this->pOnSurfaceRenderer = NULL;
 }
 
-int Surface::setupSurface() {
+int GLContext::initGLContext() {
     //初始化配置
     glfwInit();
 
@@ -57,6 +57,6 @@ int Surface::setupSurface() {
     return 0;
 }
 
-void Surface::setSurfaceRenderer(OnSurfaceRenderer *pOnSurfaceRenderer) {
+void GLContext::setSurfaceRenderer(OnSurfaceRenderer *pOnSurfaceRenderer) {
     this->pOnSurfaceRenderer = pOnSurfaceRenderer;
 }

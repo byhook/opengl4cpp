@@ -2,7 +2,7 @@
 #ifndef OPENGL_RENDERER_H
 #define OPENGL_RENDERER_H
 
-#include "surface.h"
+#include "context.h"
 #include "shader.h"
 
 class SurfaceRenderer : public OnSurfaceRenderer {

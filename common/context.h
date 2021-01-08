@@ -1,6 +1,6 @@
 
-#ifndef OPENGL_SURFACE_H
-#define OPENGL_SURFACE_H
+#ifndef OPENGL_CONTEXT_H
+#define OPENGL_CONTEXT_H
 
 
 class OnSurfaceRenderer {
@@ -18,7 +18,7 @@ public:
 };
 
 
-class Surface {
+class GLContext {
 
 private:
 
@@ -26,16 +26,15 @@ private:
 
 public:
 
-    Surface();
+    GLContext();
 
-    ~Surface();
+    ~GLContext();
 
-    int setupSurface();
-
+    int initGLContext();
 
     void setSurfaceRenderer(OnSurfaceRenderer *pOnSurfaceRenderer);
 
 };
 
 
-#endif //OPENGL_SURFACE_H
+#endif //OPENGL_CONTEXT_H

@@ -22,4 +22,3 @@ if(APPLE)
     target_link_libraries(opengl "-framework CoreVideo")
     target_link_libraries(opengl "-framework IOKit")
 endif()
-
