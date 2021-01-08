@@ -26,13 +26,11 @@ private:
 
 public:
 
-    GLContext();
+    GLContext(OnSurfaceRenderer *pOnSurfaceRenderer);
 
     ~GLContext();
 
     int initGLContext();
-
-    void setSurfaceRenderer(OnSurfaceRenderer *pOnSurfaceRenderer);
 
 };
 

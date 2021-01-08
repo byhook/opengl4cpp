@@ -3,8 +3,8 @@
 #include "context.h"
 
 
-GLContext::GLContext() {
-    this->pOnSurfaceRenderer = NULL;
+GLContext::GLContext(OnSurfaceRenderer *pOnSurfaceRenderer) {
+    this->pOnSurfaceRenderer = pOnSurfaceRenderer;
 }
 
 GLContext::~GLContext() {
@@ -55,8 +55,4 @@ int GLContext::initGLContext() {
     //染循环结束完成释放
     glfwTerminate();
     return 0;
-}
-
-void GLContext::setSurfaceRenderer(OnSurfaceRenderer *pOnSurfaceRenderer) {
-    this->pOnSurfaceRenderer = pOnSurfaceRenderer;
 }

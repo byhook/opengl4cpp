@@ -8,8 +8,8 @@
 
 int main() {
     SurfaceRenderer *pSurfaceRenderer = new RendererRectangle();
-    GLContext glContext;
-    glContext.setSurfaceRenderer(pSurfaceRenderer);
+
+    GLContext glContext(pSurfaceRenderer);
     glContext.initGLContext();
 
     delete pSurfaceRenderer;
