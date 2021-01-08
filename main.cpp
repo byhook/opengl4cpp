@@ -4,9 +4,10 @@
 #include "common/context.h"
 #include "common/renderer.h"
 #include "renderer_triangle.h"
+#include "renderer_rectangle.h"
 
 int main() {
-    SurfaceRenderer *pSurfaceRenderer = new RendererTriangle();
+    SurfaceRenderer *pSurfaceRenderer = new RendererRectangle();
     GLContext glContext;
     glContext.setSurfaceRenderer(pSurfaceRenderer);
     glContext.initGLContext();

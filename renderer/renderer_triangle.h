@@ -18,7 +18,7 @@ protected:
 
 private:
 
-    unsigned int VAO, VBO, EBO;
+    unsigned int VAO, VBO;
 
 public:
 
