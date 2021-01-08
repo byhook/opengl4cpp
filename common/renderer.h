@@ -8,7 +8,7 @@
 class SurfaceRenderer : public OnSurfaceRenderer {
 
 
-private:
+protected:
 
     void onSurfaceCreated();
 
@@ -24,10 +24,9 @@ private:
 
 public:
 
-    SurfaceRenderer(Shader *pShader);
+    SurfaceRenderer(const char *vertexPath, const char *fragmentPath);
 
     ~SurfaceRenderer();
-
 
 };
 

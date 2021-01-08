@@ -3,12 +3,15 @@
 #include "common/shader.h"
 #include "common/context.h"
 #include "common/renderer.h"
+#include "renderer_1_triangle.h"
 
 int main() {
+    SurfaceRenderer *pSurfaceRenderer = new RendererTriangle("../glsl/redener_triangle_vs.glsl",
+                                                            "../glsl/redener_triangle_fs.glsl");
     GLContext glContext;
-    Shader triangleShader("../glsl/chapter_1_vs.glsl", "../glsl/chapter_1_fs.glsl");
-    SurfaceRenderer surfaceRenderer(&triangleShader);
-    glContext.setSurfaceRenderer(&surfaceRenderer);
+    glContext.setSurfaceRenderer(pSurfaceRenderer);
     glContext.initGLContext();
+
+    delete pSurfaceRenderer;
     return 0;
 }

@@ -35,12 +35,11 @@ private:
 public:
 
     Shader(const GLchar *vertexPath, const GLchar *fragmentPath);
+    ~Shader();
 
     bool setupProgram();
 
     void useProgram();
-
-    void releaseProgram();
 
 };
 

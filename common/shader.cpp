@@ -7,6 +7,10 @@ Shader::Shader(const GLchar *vertexPath, const GLchar *fragmentPath) {
     this->fragmentPath = fragmentPath;
 }
 
+Shader::~Shader() {
+    glDeleteProgram(programID);
+}
+
 void Shader::loadShaderSource(const char *shaderPath, std::string &shaderCode) {
     std::ifstream shaderFile;
     shaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
@@ -22,7 +26,6 @@ void Shader::loadShaderSource(const char *shaderPath, std::string &shaderCode) {
         std::cout << "error load shader file " << std::endl;
     }
 }
-
 
 bool Shader::checkCompileErrors(unsigned int id, bool isProgram) {
     int success;
@@ -78,8 +81,4 @@ bool Shader::setupProgram() {
 
 void Shader::useProgram() {
     glUseProgram(programID);
-}
-
-void Shader::releaseProgram() {
-    glDeleteProgram(programID);
 }
