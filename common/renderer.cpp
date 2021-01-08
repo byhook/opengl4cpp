@@ -8,10 +8,6 @@ SurfaceRenderer::SurfaceRenderer(const char *vertexPath, const char *fragmentPat
 }
 
 SurfaceRenderer::~SurfaceRenderer() {
-    if (NULL != pShader) {
-        delete this->pShader;
-        this->pShader = NULL;
-    }
     std::cout << "SurfaceRenderer ~SurfaceRenderer" << std::endl;
 }
 
@@ -26,8 +22,7 @@ void SurfaceRenderer::onSurfaceChanged() {
     std::cout << "onSurfaceChanged" << std::endl;
 }
 
-void SurfaceRenderer::onDrawFrame() {
-    //std::cout << "onDrawFrame" << std::endl;
+void SurfaceRenderer::onDrawFrame() {;
     //清除背景
     glClear(GL_COLOR_BUFFER_BIT);
     //激活程序
@@ -38,4 +33,8 @@ void SurfaceRenderer::onDrawFrame() {
 
 void SurfaceRenderer::onRelease() {
     std::cout << "SurfaceRenderer onRelease" << std::endl;
+    if (NULL != pShader) {
+        delete this->pShader;
+        this->pShader = NULL;
+    }
 }

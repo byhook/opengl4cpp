@@ -16,9 +16,13 @@ protected:
 
     void onRelease();
 
+private:
+
+    unsigned int VAO, VBO, EBO;
+
 public:
-    //声明继承基类的构造函数
-    using SurfaceRenderer::SurfaceRenderer;
+
+    RendererTriangle();
 
 };
 

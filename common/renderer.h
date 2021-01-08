@@ -18,7 +18,7 @@ protected:
 
     void onRelease();
 
-private:
+protected:
 
     Shader *pShader;
 
