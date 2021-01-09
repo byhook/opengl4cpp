@@ -18,7 +18,7 @@ file(GLOB renderer_files ${CMAKE_CURRENT_SOURCE_DIR}/renderer/*.cpp)
 file(GLOB common_files ${CMAKE_CURRENT_SOURCE_DIR}/common/*.cpp)
 file(GLOB glad_files ${CMAKE_CURRENT_SOURCE_DIR}/include/glad/*.c)
 
-add_executable(${PROJECT_NAME} ${glad_files} ${common_files} ${renderer_files} main.cpp)
+add_executable(${PROJECT_NAME} ${glad_files} ${common_files} main.cpp ${renderer_files})
 
 if(APPLE)
     target_link_libraries(

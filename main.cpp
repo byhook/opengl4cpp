@@ -5,9 +5,10 @@
 #include "common/renderer.h"
 #include "renderer_triangle.h"
 #include "renderer_rectangle.h"
+#include "renderer_uniform.h"
 
 int main() {
-    SurfaceRenderer *pSurfaceRenderer = new RendererRectangle();
+    SurfaceRenderer *pSurfaceRenderer = new RendererUniform();
 
     GLContext glContext(pSurfaceRenderer);
     glContext.initGLContext();

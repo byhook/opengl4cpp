@@ -82,3 +82,8 @@ bool Shader::setupProgram() {
 void Shader::useProgram() {
     glUseProgram(programID);
 }
+
+
+unsigned int Shader::getProgramID() {
+    return programID;
+}
