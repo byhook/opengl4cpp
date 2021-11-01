@@ -42,7 +42,15 @@ public:
 
     void useProgram();
 
+
     unsigned int getProgramID();
+
+    //uniform工具函数
+    void setUniformBool(const char *name, bool value) const;
+
+    void setUniformInt(const char *name, int value) const;
+
+    void setUniformFloat(const char *name, float value) const;
 
 };
 

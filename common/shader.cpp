@@ -83,6 +83,17 @@ void Shader::useProgram() {
     glUseProgram(programID);
 }
 
+void Shader::setUniformBool(const char *name, bool value) const {
+
+}
+
+void Shader::setUniformInt(const char *name, int value) const {
+
+}
+
+void Shader::setUniformFloat(const char *name, float value) const {
+
+}
 
 unsigned int Shader::getProgramID() {
     return programID;
